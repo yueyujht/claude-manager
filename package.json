@@ -1,0 +1,20 @@
+{
+  "name": "claude-butler",
+  "version": "1.0.0",
+  "description": "Claude管家 - Claude Code 状态仪表盘",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "claude",
+    "dashboard",
+    "monitor"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}

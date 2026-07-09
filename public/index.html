@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude管家 - 仪表盘</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- marked.js CDN (Markdown 渲染) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+</head>
+<body>
+  <!-- ========== 顶部导航栏 ========== -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <span class="brand-icon">🔵</span>
+      <span class="brand-title">Claude管家</span>
+      <span class="brand-subtitle">仪表盘</span>
+    </div>
+    <div class="topbar-actions">
+      <label class="auto-refresh-label" title="每30秒自动刷新">
+        <input type="checkbox" id="autoRefresh" checked> 自动刷新
+      </label>
+      <button class="btn-refresh" onclick="refreshCurrentPage()" title="手动刷新">
+        🔄 刷新
+      </button>
+      <span class="status-dot" id="statusDot" title="连接状态"></span>
+    </div>
+  </header>
+
+  <!-- ========== 主体布局 ========== -->
+  <div class="main-container">
+    <!-- 侧边导航 -->
+    <nav class="sidebar">
+      <a href="#" class="nav-item active" data-page="dashboard">
+        <span class="nav-icon">📊</span>
+        <span class="nav-text">概览</span>
+      </a>
+      <a href="#" class="nav-item" data-page="tokens">
+        <span class="nav-icon">📈</span>
+        <span class="nav-text">Token</span>
+      </a>
+      <a href="#" class="nav-item" data-page="skills">
+        <span class="nav-icon">🛠</span>
+        <span class="nav-text">技能</span>
+        <span class="nav-badge" id="skillBadge">-</span>
+      </a>
+      <a href="#" class="nav-item" data-page="plugins">
+        <span class="nav-icon">🔌</span>
+        <span class="nav-text">插件</span>
+      </a>
+      <a href="#" class="nav-item" data-page="sessions">
+        <span class="nav-icon">💬</span>
+        <span class="nav-text">会话</span>
+      </a>
+      <a href="#" class="nav-item" data-page="projects">
+        <span class="nav-icon">📁</span>
+        <span class="nav-text">项目</span>
+      </a>
+      <a href="#" class="nav-item" data-page="config">
+        <span class="nav-icon">⚙</span>
+        <span class="nav-text">Config</span>
+      </a>
+      <a href="#" class="nav-item" data-page="memory">
+        <span class="nav-icon">🧠</span>
+        <span class="nav-text">Memory</span>
+      </a>
+      <a href="#" class="nav-item" data-page="history">
+        <span class="nav-icon">📋</span>
+        <span class="nav-text">历史</span>
+      </a>
+      <a href="#" class="nav-item" data-page="plans">
+        <span class="nav-icon">📝</span>
+        <span class="nav-text">计划</span>
+      </a>
+    </nav>
+
+    <!-- 内容区域 -->
+    <main class="content" id="mainContent">
+      <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+        <p>加载中...</p>
+      </div>
+      <div id="pageContent"></div>
+    </main>
+  </div>
+
+  <!-- ========== 底部状态栏 ========== -->
+  <footer class="statusbar">
+    <span id="statusText">就绪</span>
+    <span class="statusbar-separator">|</span>
+    <span>最后刷新: <span id="lastRefresh">-</span></span>
+    <span class="statusbar-separator">|</span>
+    <span>数据源: <span id="dataSource">C:\Users\jht25\.claude\</span></span>
+    <span class="statusbar-right" id="statusRight"></span>
+  </footer>
+
+  <!-- ========== 技能详情模态框 ========== -->
+  <div class="modal-overlay" id="skillModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="modalTitle">技能详情</h3>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ========== 前端 JS（页面模块先加载，app.js 最后加载） ========== -->
+  <script src="js/utils.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/tokens.js"></script>
+  <script src="js/skills.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/sessions.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/memory.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/plans.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
