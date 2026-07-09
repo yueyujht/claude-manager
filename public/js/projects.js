@@ -24,8 +24,8 @@ async function renderProjects() {
     projects.forEach(p => {
       html += `
         <div class="info-card" onclick="loadProjectDetail('${escapeHtml(p.name)}')">
-          <div class="info-card-title">📁 ${escapeHtml(p.name.length > 30 ? p.name.substring(0, 30) + '...' : p.name)}</div>
-          <div class="info-card-desc" style="font-size:11px;color:var(--text-muted)">${escapeHtml(p.displayPath)}</div>
+          <div class="info-card-title">📁 ${escapeHtml((p.displayPath || p.name).length > 30 ? (p.displayPath || p.name).substring(0, 30) + '...' : (p.displayPath || p.name))}</div>
+          <div class="info-card-desc" style="font-size:11px;color:var(--text-muted)">${p.sessionCount} 会话 · ${p.subDirCount} 目录 · ${p.memoryCount} 记忆</div>
           <div class="info-card-meta">
             <span class="badge badge-blue">${p.sessionCount} 会话</span>
             <span class="badge badge-green" style="margin-left:4px">${p.subDirCount} 目录</span>
@@ -61,9 +61,36 @@ async function loadProjectDetail(name) {
   }
 
   const d = result.data;
-  let html = `<div class="panel">
-    <div class="panel-title">📋 ${escapeHtml(name)} 详情</div>
+  // 解码项目名显示
+  const displayName = name.replace(/--/g, ' / ').replace(/^-/, '');
 
+  let html = `<div class="panel">
+    <div class="panel-title">📋 ${escapeHtml(displayName)} 详情</div>`;
+
+  // Token 消耗摘要
+  if (d.tokenData) {
+    html += `
+    <div class="cards-grid" style="margin-top:12px">
+      <div class="stat-card">
+        <div class="stat-card-label">Input Tokens</div>
+        <div class="stat-card-value" style="font-size:20px;color:var(--accent-blue)">${formatNumber(d.tokenData.inputTokens)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">Output Tokens</div>
+        <div class="stat-card-value" style="font-size:20px;color:var(--accent-green)">${formatNumber(d.tokenData.outputTokens)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">Cache Tokens</div>
+        <div class="stat-card-value" style="font-size:20px;color:var(--accent-orange)">${formatNumber(d.tokenData.cacheTokens)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">费用</div>
+        <div class="stat-card-value" style="font-size:20px">$${d.tokenData.costUSD.toFixed(2)}</div>
+      </div>
+    </div>`;
+  }
+
+  html += `
     <h4 style="color:var(--text-primary);margin:12px 0 8px">🧠 记忆文件 (${d.memories.length})</h4>`;
 
   if (d.memories.length === 0) {

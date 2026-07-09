@@ -27,6 +27,7 @@ app.use('/api/config',    require('./routes/config'));
 app.use('/api/memory',    require('./routes/memory'));
 app.use('/api/history',   require('./routes/history'));
 app.use('/api/plans',     require('./routes/plans'));
+app.use('/api/token-counter', require('./routes/token-counter'));
 
 // 404 处理
 app.use((req, res) => {

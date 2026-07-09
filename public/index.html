@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Claude管家 - 仪表盘</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔵</text></svg>">
   <link rel="stylesheet" href="css/style.css">
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -19,6 +20,15 @@
       <span class="brand-subtitle">仪表盘</span>
     </div>
     <div class="topbar-actions">
+      <div class="global-search-wrap">
+        <input type="text" class="global-search-input" id="globalSearch"
+          placeholder="🔍 全局搜索 (Ctrl+K)..."
+          oninput="handleGlobalSearch(this.value)"
+          onfocus="if(this.value) handleGlobalSearch(this.value)"
+          onblur="setTimeout(() => document.getElementById('globalSearchResults').classList.remove('active'), 200)">
+        <div class="global-search-results" id="globalSearchResults"></div>
+      </div>
+      <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌓</button>
       <label class="auto-refresh-label" title="每30秒自动刷新">
         <input type="checkbox" id="autoRefresh" checked> 自动刷新
       </label>

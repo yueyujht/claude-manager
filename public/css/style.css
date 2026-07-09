@@ -20,12 +20,36 @@
   --accent-purple: #b39ddb;
   --border-color: rgba(255, 255, 255, 0.06);
   --border-active: rgba(79, 195, 247, 0.3);
+  --hover-overlay: rgba(255, 255, 255, 0.04);
+  --scrollbar-hover: rgba(255, 255, 255, 0.1);
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   --radius: 8px;
   --sidebar-width: 200px;
   --topbar-height: 52px;
   --statusbar-height: 28px;
   --transition: 0.15s ease;
+}
+
+/* 亮色主题 */
+[data-theme="light"] {
+  --bg-primary: #f5f6f8;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f1f5;
+  --bg-sidebar: #eaebef;
+  --text-primary: #1a1c2e;
+  --text-secondary: #555a6e;
+  --text-muted: #888ca0;
+  --accent-blue: #1a8fbf;
+  --accent-green: #3d8b40;
+  --accent-orange: #e67e22;
+  --accent-red: #c0392b;
+  --accent-purple: #7b5ea7;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-active: rgba(26, 143, 191, 0.3);
+  --hover-overlay: rgba(0, 0, 0, 0.04);
+  --scrollbar-hover: rgba(0, 0, 0, 0.15);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* ========== 全局重置 ========== */
@@ -311,7 +335,7 @@ a:hover { text-decoration: underline; }
   color: var(--text-secondary);
 }
 .data-table tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--hover-overlay);
   color: var(--text-primary);
 }
 
@@ -493,6 +517,113 @@ a:hover { text-decoration: underline; }
 .page-btn:disabled { opacity: 0.3; cursor: default; }
 .page-info { color: var(--text-muted); font-size: 12px; margin: 0 8px; }
 
+/* 时间范围切换按钮组 */
+.time-range-btns {
+  display: flex;
+  gap: 4px;
+}
+.time-range-btns .page-btn {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* 展开按钮 */
+.btn-expand {
+  padding: 3px 10px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--accent-blue);
+  cursor: pointer;
+  font-size: 11px;
+  transition: var(--transition);
+}
+.btn-expand:hover { background: rgba(79, 195, 247, 0.1); }
+
+/* 全局搜索 */
+.global-search-wrap {
+  position: relative;
+  margin: 0 12px;
+}
+.global-search-input {
+  padding: 5px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 12px;
+  width: 200px;
+  outline: none;
+  transition: var(--transition);
+}
+.global-search-input:focus {
+  border-color: var(--accent-blue);
+  width: 260px;
+}
+.global-search-input::placeholder { color: var(--text-muted); }
+.global-search-results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 360px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  z-index: 999;
+  margin-top: 4px;
+}
+.global-search-results.active { display: block; }
+.global-search-result-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+}
+.global-search-result-item:hover { background: var(--bg-card-hover); }
+.global-search-result-item .result-icon { font-size: 16px; }
+.global-search-result-item .result-text { flex: 1; }
+.global-search-result-item .result-title { font-size: 13px; color: var(--text-primary); }
+.global-search-result-item .result-sub { font-size: 11px; color: var(--text-muted); }
+.global-search-empty {
+  padding: 16px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* 页面过渡 */
+#pageContent {
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 主题切换 */
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  transition: var(--transition);
+  line-height: 1;
+}
+.theme-toggle-btn:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+
+/* Favicon 样式 */
+link[rel="icon"] { }
+
 /* ========== Markdown 渲染区 ========== */
 .markdown-body {
   line-height: 1.7;
@@ -619,4 +750,4 @@ a:hover { text-decoration: underline; }
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.1); }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }

@@ -15,7 +15,7 @@ async function renderPlans() {
         <div class="page-subtitle">共 ${plans.length} 个计划文件</div>
       </div>
     </div>
-    <div class="card-grid">
+    <div class="card-grid" id="planGrid">
   `;
 
   if (plans.length === 0) {
@@ -23,7 +23,7 @@ async function renderPlans() {
   } else {
     plans.forEach(p => {
       html += `
-        <div class="info-card">
+        <div class="info-card" data-file="${escapeHtml(p.file)}">
           <div class="info-card-title">${escapeHtml(p.title)}</div>
           <div class="info-card-desc">📄 ${escapeHtml(p.file)}</div>
           <div class="info-card-meta">
@@ -37,6 +37,29 @@ async function renderPlans() {
 
   html += '</div>';
   renderContent(html);
+
+  // 绑定卡片点击事件（data-file 属性传参，避免内联 onclick XSS 风险）
+  document.getElementById('planGrid')?.addEventListener('click', (e) => {
+    const card = e.target.closest('.info-card');
+    if (card && card.dataset.file) {
+      openPlanDetail(card.dataset.file);
+    }
+  });
+
   updateStatus(`已加载 ${plans.length} 个计划`);
   setStatusDot('connected');
+}
+
+/**
+ * 打开计划详情
+ */
+async function openPlanDetail(file) {
+  showModal(file, '<div class="loading-spinner"><div class="spinner"></div><p>加载中...</p></div>');
+  const result = await fetchJSON(`${API_BASE}/plans/${encodeURIComponent(file)}`);
+  if (result.success) {
+    const html = marked.parse(result.data.content || '暂无内容');
+    document.getElementById('modalBody').innerHTML = `<div class="markdown-body">${html}</div>`;
+  } else {
+    document.getElementById('modalBody').innerHTML = `<div class="error-box"><span class="error-icon">⚠</span><p>${escapeHtml(result.error)}</p></div>`;
+  }
 }

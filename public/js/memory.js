@@ -37,9 +37,13 @@ async function renderMemory() {
   });
 
   Object.entries(byProject).forEach(([project, mems]) => {
+    // 解码项目路径（将 -- 转为路径分隔符，去掉开头 -）
+    const projectDisplay = (mems[0].displayProject || project)
+      .replace(/--/g, ' / ')
+      .replace(/^-/, '');
     html += `
     <div class="panel">
-      <div class="panel-title">📁 ${escapeHtml(mems[0].displayProject || project)} <span style="font-size:12px;color:var(--text-muted)">(${mems.length} 条)</span></div>
+      <div class="panel-title">📁 ${escapeHtml(projectDisplay)} <span style="font-size:12px;color:var(--text-muted)">(${mems.length} 条)</span></div>
       <div class="card-grid">
     `;
     mems.forEach(m => {

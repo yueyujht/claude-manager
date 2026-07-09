@@ -6,6 +6,7 @@ const router = require('express').Router();
 const fs = require('fs');
 const path = require('path');
 const config = require('../config');
+const tokenCounter = require('./token-counter');
 
 // 安全读取 JSON 文件，失败返回默认值
 function readJSON(filePath, defaultVal = null) {
@@ -38,33 +39,20 @@ function readFiles(dirPath) {
 
 router.get('/', (req, res) => {
   try {
-    // 读取 stats-cache.json（Token 统计）
-    const stats = readJSON(config.PATHS.statsCache, {});
-    // 读取最新备份文件获取更详细的项目级数据
-    const backupFiles = readFiles(config.PATHS.backups)
-      .filter(f => f.startsWith('.claude.json.backup.'))
-      .sort();
-    const latestBackup = backupFiles.length > 0
-      ? readJSON(path.join(config.PATHS.backups, backupFiles[backupFiles.length - 1]), {})
-      : {};
+    // 读取 Token 计数器（来自 JSONL 精确统计）
+    const counterFile = path.join(__dirname, '..', 'data', 'token-counter.json');
+    let counter = readJSON(counterFile, {});
 
-    // 汇总 Token 数据
-    const modelUsage = stats.modelUsage || {};
-    let totalInput = 0, totalOutput = 0, totalCacheRead = 0;
-    Object.values(modelUsage).forEach(m => {
-      totalInput += m.inputTokens || 0;
-      totalOutput += m.outputTokens || 0;
-      totalCacheRead += m.cacheReadInputTokens || 0;
-    });
-
-    // 从备份中获取项目级累计数据
-    const projectsUsage = latestBackup.projects || {};
-    let grandInput = totalInput, grandOutput = totalOutput, grandCache = totalCacheRead;
-    Object.values(projectsUsage).forEach(p => {
-      grandInput += p.lastTotalInputTokens || 0;
-      grandOutput += p.lastTotalOutputTokens || 0;
-      grandCache += p.lastTotalCacheReadInputTokens || 0;
-    });
+    // 如果计数器为空或版本过旧，触发全量扫描
+    if (!counter || counter.version !== tokenCounter.CURRENT_VERSION) {
+      try {
+        if (typeof tokenCounter.scanAllJSONL === 'function') {
+          counter = tokenCounter.scanAllJSONL();
+        }
+      } catch (err) {
+        console.error('扫描 Token 数据失败:', err.message);
+      }
+    }
 
     // 技能数量
     const skillDirs = readDirs(config.PATHS.skills);
@@ -99,10 +87,12 @@ router.get('/', (req, res) => {
     // 计划文件数
     const planFiles = readFiles(config.PATHS.plans).filter(f => f.endsWith('.md'));
 
-    // 每日活动数据
+    // 每日活动数据（从 stats-cache 获取图表数据）
+    const stats = readJSON(config.PATHS.statsCache, {});
     const dailyActivity = stats.dailyActivity || [];
 
     // 模型费用信息
+    const modelUsage = stats.modelUsage || {};
     const modelCosts = {};
     Object.entries(modelUsage).forEach(([model, data]) => {
       modelCosts[model] = {
@@ -113,29 +103,50 @@ router.get('/', (req, res) => {
       };
     });
 
-    // 项目 Token 统计（从备份文件）
-    const projectStats = [];
-    Object.entries(projectsUsage).forEach(([projPath, projData]) => {
-      projectStats.push({
-        name: projPath.split(/[\\/]/).pop() || projPath,
-        path: projPath,
-        totalInputTokens: projData.lastTotalInputTokens || 0,
-        totalOutputTokens: projData.lastTotalOutputTokens || 0,
-        totalCacheReadTokens: projData.lastTotalCacheReadInputTokens || 0,
-        costUSD: projData.lastCost || 0,
-        sessionCount: projData.lastSessionMetrics ? 1 : 0
-      });
+    // 项目 Token 分布（从 counter.scannedFiles 聚合）
+    const projMap = {};
+    Object.entries(counter.scannedFiles || {}).forEach(([fileKey, info]) => {
+      const projEncoded = fileKey.split('/')[0];
+      if (!projMap[projEncoded]) {
+        projMap[projEncoded] = { totalInputTokens: 0, totalOutputTokens: 0, totalCacheReadTokens: 0 };
+      }
+      projMap[projEncoded].totalInputTokens += info.cumInput || 0;
+      projMap[projEncoded].totalOutputTokens += info.cumOutput || 0;
+      projMap[projEncoded].totalCacheReadTokens += info.cumCacheRead || 0;
     });
+    const projectsArr = Object.entries(projMap).map(([projEncoded, p]) => {
+      const displayName = projEncoded.replace(/--/g, '\\').replace(/^-/, '');
+      // 预估费用（按 Claude 3.5 Sonnet 标准定价）
+      const costUSD = (p.totalInputTokens / 1000000 * 3) +
+                      (p.totalOutputTokens / 1000000 * 15) +
+                      (p.totalCacheReadTokens / 1000000 * 0.30);
+      return {
+        name: displayName.split(/[\\/]/).pop() || displayName,
+        totalInputTokens: p.totalInputTokens,
+        totalOutputTokens: p.totalOutputTokens,
+        totalCacheReadTokens: p.totalCacheReadTokens,
+        costUSD: parseFloat(costUSD.toFixed(4))
+      };
+    }).sort((a, b) => b.totalInputTokens - a.totalInputTokens);
 
     res.json({
       success: true,
       data: {
         summary: {
-          totalInputTokens: grandInput,
-          totalOutputTokens: grandOutput,
-          totalCacheReadTokens: grandCache,
+          totalInputTokens: counter.totalInput || 0,
+          totalOutputTokens: counter.totalOutput || 0,
+          totalCacheReadTokens: counter.totalCacheRead || 0,
+          todayInputTokens: counter.todayInput || 0,
+          todayOutputTokens: counter.todayOutput || 0,
+          todayCacheReadTokens: counter.todayCacheRead || 0,
+          todayAllTokens: (counter.todayInput || 0) + (counter.todayOutput || 0) + (counter.todayCacheRead || 0),
           skillCount,
-          pluginCount: 2, // 已知有2个官方插件
+          pluginCount: (() => {
+            try {
+              const plugins = JSON.parse(fs.readFileSync(config.PATHS.plugins, 'utf-8'));
+              return (plugins.plugins || Object.keys(plugins)).length;
+            } catch { return 0; }
+          })(),
           activeSessions: sessions.filter(s => s.status !== 'ended').length,
           projectCount: projectDirs.length,
           memoryCount,
@@ -152,9 +163,7 @@ router.get('/', (req, res) => {
           version: s.version,
           status: s.status || 'active'
         })),
-        projects: projectStats.sort((a, b) => b.totalInputTokens - a.totalInputTokens),
-        // 启动次数统计
-        launchCount: latestBackup.launchCount || 0
+        projects: projectsArr
       }
     });
   } catch (err) {

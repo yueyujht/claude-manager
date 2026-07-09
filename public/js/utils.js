@@ -25,8 +25,8 @@ async function fetchJSON(url) {
  */
 function formatNumber(n) {
   if (n == null || isNaN(n)) return '0';
-  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
-  if (n >= 1_000) return (n / 1_000).toFixed(1) + 'K';
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace('.0', '') + 'M';
+  if (n >= 1_000) return (n / 1_000).toFixed(1).replace('.0', '') + 'K';
   return n.toLocaleString('zh-CN');
 }
 
@@ -139,4 +139,32 @@ function throttle(fn, delay) {
       timer = null;
     }, delay);
   };
+}
+
+/**
+ * 导出 CSV 文件
+ * @param {string} filename - 文件名（不含扩展名）
+ * @param {string[]} headers - 表头数组
+ * @param {Array<Array>} rows - 数据行数组
+ */
+function exportCSV(filename, headers, rows) {
+  const BOM = '﻿'; // UTF-8 BOM for Excel
+  const headerLine = headers.join(',');
+  const dataLines = rows.map(row =>
+    row.map(cell => {
+      // 含逗号或换行的字段用引号包裹
+      const str = String(cell == null ? '' : cell);
+      return str.includes(',') || str.includes('\n') || str.includes('"')
+        ? '"' + str.replace(/"/g, '""') + '"'
+        : str;
+    }).join(',')
+  );
+  const csv = BOM + headerLine + '\n' + dataLines.join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
 }

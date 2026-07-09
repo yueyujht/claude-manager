@@ -1,0 +1,869 @@
+{
+  "version": 2,
+  "totalInput": 39292204,
+  "totalOutput": 7612450,
+  "totalCacheRead": 2354501504,
+  "todayInput": 7890983,
+  "todayOutput": 1206656,
+  "todayCacheRead": 173805824,
+  "date": "2026-07-09",
+  "lastUpdate": "2026-07-09T12:06:54.875Z",
+  "scannedFiles": {
+    "C--Users-jht25/2c99fd39-76cc-450b-8330-eba3f331d57f/subagents/agent-a6c215367bba70ce1.jsonl": {
+      "lineCount": 7,
+      "size": 14765,
+      "mtimeMs": 1783573406744.2197,
+      "sessionCacheRead": 13056,
+      "maxCacheRead": 6656,
+      "done": true
+    },
+    "C--Users-jht25/2c99fd39-76cc-450b-8330-eba3f331d57f.jsonl": {
+      "lineCount": 337,
+      "size": 424611,
+      "mtimeMs": 1783573490474.369,
+      "sessionCacheRead": 6582016,
+      "maxCacheRead": 63296,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a14d34f2f42d652de.jsonl": {
+      "lineCount": 68,
+      "size": 183604,
+      "mtimeMs": 1783578811930.4744,
+      "sessionCacheRead": 549504,
+      "maxCacheRead": 36864,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a14e33852d9951e87.jsonl": {
+      "lineCount": 26,
+      "size": 113817,
+      "mtimeMs": 1783589133710.0063,
+      "sessionCacheRead": 293504,
+      "maxCacheRead": 28800,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a22a9e71f2cf9eee7.jsonl": {
+      "lineCount": 264,
+      "size": 522200,
+      "mtimeMs": 1783591332780.88,
+      "sessionCacheRead": 10734336,
+      "maxCacheRead": 88704,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a245adfd5cfe4c8ac.jsonl": {
+      "lineCount": 25,
+      "size": 112964,
+      "mtimeMs": 1783586006897.673,
+      "sessionCacheRead": 186112,
+      "maxCacheRead": 24320,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a3a0c5d05e787be7e.jsonl": {
+      "lineCount": 30,
+      "size": 277160,
+      "mtimeMs": 1783589683121.917,
+      "sessionCacheRead": 587520,
+      "maxCacheRead": 75264,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a3db1ad8fa0bdb4cc.jsonl": {
+      "lineCount": 81,
+      "size": 179679,
+      "mtimeMs": 1783590000012.7869,
+      "sessionCacheRead": 1463680,
+      "maxCacheRead": 36096,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a438e0e6fd7e7f8cc.jsonl": {
+      "lineCount": 58,
+      "size": 91490,
+      "mtimeMs": 1783578277975.165,
+      "sessionCacheRead": 359552,
+      "maxCacheRead": 18688,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a68f815a765b0e6f7.jsonl": {
+      "lineCount": 10,
+      "size": 150010,
+      "mtimeMs": 1783589562660.7986,
+      "sessionCacheRead": 94720,
+      "maxCacheRead": 35968,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a698453102c852e6c.jsonl": {
+      "lineCount": 27,
+      "size": 29788,
+      "mtimeMs": 1783577955732.3403,
+      "sessionCacheRead": 17664,
+      "maxCacheRead": 8832,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a72b98b2c4fbc28df.jsonl": {
+      "lineCount": 55,
+      "size": 272044,
+      "mtimeMs": 1783589570464.9883,
+      "sessionCacheRead": 1064704,
+      "maxCacheRead": 70784,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a806e5def3563df26.jsonl": {
+      "lineCount": 284,
+      "size": 550756,
+      "mtimeMs": 1783587538919.178,
+      "sessionCacheRead": 11052160,
+      "maxCacheRead": 97152,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a81867d5087de9058.jsonl": {
+      "lineCount": 134,
+      "size": 320532,
+      "mtimeMs": 1783578406363.5813,
+      "sessionCacheRead": 3118080,
+      "maxCacheRead": 83584,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a90ec870be76cd958.jsonl": {
+      "lineCount": 54,
+      "size": 164827,
+      "mtimeMs": 1783589505328.0903,
+      "sessionCacheRead": 998528,
+      "maxCacheRead": 45056,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a9af0d633a9a8b1d9.jsonl": {
+      "lineCount": 25,
+      "size": 87498,
+      "mtimeMs": 1783589092185.6685,
+      "sessionCacheRead": 234752,
+      "maxCacheRead": 22784,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-a9bf40f25ecbae921.jsonl": {
+      "lineCount": 41,
+      "size": 163314,
+      "mtimeMs": 1783589550973.6853,
+      "sessionCacheRead": 717696,
+      "maxCacheRead": 45952,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-aa7f9c47ee7328484.jsonl": {
+      "lineCount": 107,
+      "size": 388346,
+      "mtimeMs": 1783578386477.8994,
+      "sessionCacheRead": 1823232,
+      "maxCacheRead": 111744,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202/subagents/agent-acebaf14d3d2b081d.jsonl": {
+      "lineCount": 102,
+      "size": 358429,
+      "mtimeMs": 1783582119420.2202,
+      "sessionCacheRead": 2555904,
+      "maxCacheRead": 80768,
+      "done": true
+    },
+    "e--ai-project-claude--/f434e5c2-698b-4449-886c-b70c2ce05202.jsonl": {
+      "lineCount": 1212,
+      "size": 3197404,
+      "mtimeMs": 1783594754167.8357,
+      "sessionCacheRead": 61951616,
+      "maxCacheRead": 255488,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/6e0fd3b6-6784-437b-b8b2-da1a18720e0f.jsonl": {
+      "lineCount": 138,
+      "size": 237442,
+      "mtimeMs": 1781698373292.5225,
+      "sessionCacheRead": 1906944,
+      "maxCacheRead": 46976,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/77ccc989-e5af-4e09-9cab-048d61b1607e/subagents/agent-a5743552bb23a9f94.jsonl": {
+      "lineCount": 244,
+      "size": 361970,
+      "mtimeMs": 1782442061596.2754,
+      "sessionCacheRead": 4669696,
+      "maxCacheRead": 55680,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/77ccc989-e5af-4e09-9cab-048d61b1607e.jsonl": {
+      "lineCount": 124,
+      "size": 253368,
+      "mtimeMs": 1782443371472.7773,
+      "sessionCacheRead": 2090240,
+      "maxCacheRead": 55680,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/9305aba0-b64a-4798-af67-27a4b849a092/subagents/agent-a32ff698d58ff974d.jsonl": {
+      "lineCount": 68,
+      "size": 186064,
+      "mtimeMs": 1782355613099.333,
+      "sessionCacheRead": 663296,
+      "maxCacheRead": 36864,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/9305aba0-b64a-4798-af67-27a4b849a092/subagents/agent-a3fbb59ce718de5da.jsonl": {
+      "lineCount": 98,
+      "size": 155704,
+      "mtimeMs": 1782355615935.357,
+      "sessionCacheRead": 920448,
+      "maxCacheRead": 29440,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/9305aba0-b64a-4798-af67-27a4b849a092.jsonl": {
+      "lineCount": 170,
+      "size": 416052,
+      "mtimeMs": 1782533264234.368,
+      "sessionCacheRead": 2422912,
+      "maxCacheRead": 88704,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/a5d997b0-9e52-4870-8c59-c5e3b0e41fda/subagents/agent-a088f91339b9f8396.jsonl": {
+      "lineCount": 79,
+      "size": 155928,
+      "mtimeMs": 1782533418887.9785,
+      "sessionCacheRead": 716672,
+      "maxCacheRead": 31360,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/a5d997b0-9e52-4870-8c59-c5e3b0e41fda/subagents/agent-a30e32f757ff06475.jsonl": {
+      "lineCount": 87,
+      "size": 158521,
+      "mtimeMs": 1782533426575.9197,
+      "sessionCacheRead": 719616,
+      "maxCacheRead": 27392,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/a5d997b0-9e52-4870-8c59-c5e3b0e41fda/subagents/agent-aa04520c797eb7326.jsonl": {
+      "lineCount": 60,
+      "size": 136835,
+      "mtimeMs": 1782533412331.2744,
+      "sessionCacheRead": 502016,
+      "maxCacheRead": 25984,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/a5d997b0-9e52-4870-8c59-c5e3b0e41fda.jsonl": {
+      "lineCount": 529,
+      "size": 880341,
+      "mtimeMs": 1782899189424.688,
+      "sessionCacheRead": 14611328,
+      "maxCacheRead": 101120,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-a031ad639d6fd444f.jsonl": {
+      "lineCount": 331,
+      "size": 484866,
+      "mtimeMs": 1783579956503.1016,
+      "sessionCacheRead": 10190592,
+      "maxCacheRead": 76160,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-a10c3ba2a68571b8b.jsonl": {
+      "lineCount": 270,
+      "size": 441546,
+      "mtimeMs": 1783580553115.1626,
+      "sessionCacheRead": 7254656,
+      "maxCacheRead": 73216,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-a199827f2f5e9dad2.jsonl": {
+      "lineCount": 177,
+      "size": 444232,
+      "mtimeMs": 1783576420399.5542,
+      "sessionCacheRead": 4630528,
+      "maxCacheRead": 91776,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-a1ef706ff352f620d.jsonl": {
+      "lineCount": 70,
+      "size": 243481,
+      "mtimeMs": 1783574473698.299,
+      "sessionCacheRead": 941824,
+      "maxCacheRead": 54912,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-a204a5510632b0188.jsonl": {
+      "lineCount": 134,
+      "size": 251724,
+      "mtimeMs": 1783573893698.2441,
+      "sessionCacheRead": 1835520,
+      "maxCacheRead": 50560,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-a494560685363344c.jsonl": {
+      "lineCount": 119,
+      "size": 298002,
+      "mtimeMs": 1783581818748.3315,
+      "sessionCacheRead": 2643968,
+      "maxCacheRead": 65920,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-a570693be528d9d26.jsonl": {
+      "lineCount": 43,
+      "size": 90015,
+      "mtimeMs": 1783575861987.3015,
+      "sessionCacheRead": 298624,
+      "maxCacheRead": 22912,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-a81c052ca9f68bb1f.jsonl": {
+      "lineCount": 2,
+      "size": 2025,
+      "mtimeMs": 1783574291751.163,
+      "sessionCacheRead": 0,
+      "maxCacheRead": 0,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-a93170c3d916538a2.jsonl": {
+      "lineCount": 219,
+      "size": 302433,
+      "mtimeMs": 1783581357331.2266,
+      "sessionCacheRead": 3893888,
+      "maxCacheRead": 51328,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-aa79599e3ae6ef92a.jsonl": {
+      "lineCount": 147,
+      "size": 415415,
+      "mtimeMs": 1783573954664.3015,
+      "sessionCacheRead": 3685632,
+      "maxCacheRead": 91776,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-ab1547a1e4a824b9a.jsonl": {
+      "lineCount": 210,
+      "size": 374946,
+      "mtimeMs": 1783580803042.3713,
+      "sessionCacheRead": 5242880,
+      "maxCacheRead": 63488,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-ab4dae615eacab0f2.jsonl": {
+      "lineCount": 81,
+      "size": 259596,
+      "mtimeMs": 1783581993725.9607,
+      "sessionCacheRead": 1853056,
+      "maxCacheRead": 62848,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-adc63f26ca6157288.jsonl": {
+      "lineCount": 44,
+      "size": 51677,
+      "mtimeMs": 1783573856413.245,
+      "sessionCacheRead": 224768,
+      "maxCacheRead": 13696,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-ae070f05986eccca6.jsonl": {
+      "lineCount": 71,
+      "size": 139982,
+      "mtimeMs": 1783575327158.4749,
+      "sessionCacheRead": 611840,
+      "maxCacheRead": 28544,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-aee660cc1fb82ace3.jsonl": {
+      "lineCount": 153,
+      "size": 260949,
+      "mtimeMs": 1783581638021.0898,
+      "sessionCacheRead": 2880000,
+      "maxCacheRead": 49920,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-af01492b80251e05f.jsonl": {
+      "lineCount": 152,
+      "size": 225614,
+      "mtimeMs": 1783575504334.0603,
+      "sessionCacheRead": 2128128,
+      "maxCacheRead": 38016,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-af74ca57539c21165.jsonl": {
+      "lineCount": 245,
+      "size": 345788,
+      "mtimeMs": 1783582354181.8975,
+      "sessionCacheRead": 6047104,
+      "maxCacheRead": 64640,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96/subagents/agent-afdf8bb00770a18ea.jsonl": {
+      "lineCount": 131,
+      "size": 436539,
+      "mtimeMs": 1783574958713.4636,
+      "sessionCacheRead": 2823680,
+      "maxCacheRead": 99456,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/c5caae7d-156d-428a-bb34-3ab419937e96.jsonl": {
+      "lineCount": 1973,
+      "size": 4144105,
+      "mtimeMs": 1783582367981.1396,
+      "sessionCacheRead": 90575232,
+      "maxCacheRead": 202240,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/de816b5b-e5ce-4539-87b1-1fb5e4900119/subagents/agent-a1f47a0486fa73268.jsonl": {
+      "lineCount": 40,
+      "size": 89754,
+      "mtimeMs": 1782300485841.7256,
+      "sessionCacheRead": 166528,
+      "maxCacheRead": 19200,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/de816b5b-e5ce-4539-87b1-1fb5e4900119.jsonl": {
+      "lineCount": 621,
+      "size": 1058103,
+      "mtimeMs": 1782307855098.8054,
+      "sessionCacheRead": 23941760,
+      "maxCacheRead": 137216,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/e919e3f6-288e-4ed6-87d3-3c80d4f0c242/subagents/agent-a05b9de764c0eca1e.jsonl": {
+      "lineCount": 51,
+      "size": 96388,
+      "mtimeMs": 1782128421752.083,
+      "sessionCacheRead": 285568,
+      "maxCacheRead": 22272,
+      "done": true
+    },
+    "E--Java-project-NFTurbo-NFTurbo-Chassis/e919e3f6-288e-4ed6-87d3-3c80d4f0c242.jsonl": {
+      "lineCount": 142,
+      "size": 274273,
+      "mtimeMs": 1782135187193.973,
+      "sessionCacheRead": 1999232,
+      "maxCacheRead": 49664,
+      "done": true
+    },
+    "E--Java-project-oa/58d97094-399e-40de-b51a-98632faf4ead.jsonl": {
+      "lineCount": 4459,
+      "size": 11306269,
+      "mtimeMs": 1783166445873.758,
+      "sessionCacheRead": 324092288,
+      "maxCacheRead": 350976,
+      "done": true
+    },
+    "E--Java-project-oa-oa-frontend/c71a6514-7f37-4836-8270-1e9f38af6449.jsonl": {
+      "lineCount": 6,
+      "size": 2215,
+      "mtimeMs": 1783054226013.99,
+      "sessionCacheRead": 0,
+      "maxCacheRead": 0,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/03518256-5e46-4c2d-ac48-b21a78dbf66f.jsonl": {
+      "lineCount": 32,
+      "size": 43474,
+      "mtimeMs": 1781180479696.831,
+      "sessionCacheRead": 51712,
+      "maxCacheRead": 25856,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/0a97c28b-1427-417b-8b1c-e3dd9e389073.jsonl": {
+      "lineCount": 213,
+      "size": 552586,
+      "mtimeMs": 1781156928682.3606,
+      "sessionCacheRead": 3163776,
+      "maxCacheRead": 66560,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/0e2fd55a-8d88-41a1-af13-6789f9fafeee.jsonl": {
+      "lineCount": 127,
+      "size": 421018,
+      "mtimeMs": 1781663590960.0808,
+      "sessionCacheRead": 2667392,
+      "maxCacheRead": 85120,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/10589b58-ce73-4782-a8c7-469459e6b8f0.jsonl": {
+      "lineCount": 111,
+      "size": 160662,
+      "mtimeMs": 1781082857974.4172,
+      "sessionCacheRead": 1640448,
+      "maxCacheRead": 43008,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/268d1694-41f9-49f8-afc6-f2208f722335.jsonl": {
+      "lineCount": 8,
+      "size": 7282,
+      "mtimeMs": 1781083252087.2212,
+      "sessionCacheRead": 0,
+      "maxCacheRead": 0,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/2f98ab9e-21c0-4428-a9ae-5f2596dcfea7/subagents/agent-a21e2e061eb89c910.jsonl": {
+      "lineCount": 144,
+      "size": 309006,
+      "mtimeMs": 1781414430795.9211,
+      "sessionCacheRead": 2278656,
+      "maxCacheRead": 57344,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/2f98ab9e-21c0-4428-a9ae-5f2596dcfea7/subagents/agent-a59a488b644310947.jsonl": {
+      "lineCount": 59,
+      "size": 191298,
+      "mtimeMs": 1781331080816.0728,
+      "sessionCacheRead": 509696,
+      "maxCacheRead": 40960,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/2f98ab9e-21c0-4428-a9ae-5f2596dcfea7/subagents/agent-a6c6d704c567e9028.jsonl": {
+      "lineCount": 75,
+      "size": 210448,
+      "mtimeMs": 1781331191507.1362,
+      "sessionCacheRead": 860800,
+      "maxCacheRead": 42240,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/2f98ab9e-21c0-4428-a9ae-5f2596dcfea7/subagents/agent-afa4a49a51193d747.jsonl": {
+      "lineCount": 82,
+      "size": 174642,
+      "mtimeMs": 1781330995944.0942,
+      "sessionCacheRead": 958720,
+      "maxCacheRead": 34688,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/2f98ab9e-21c0-4428-a9ae-5f2596dcfea7.jsonl": {
+      "lineCount": 1273,
+      "size": 2478093,
+      "mtimeMs": 1781619389633.0276,
+      "sessionCacheRead": 106121728,
+      "maxCacheRead": 286208,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/3a1da46f-a766-4df3-b4cd-7ae3b4cfeaca.jsonl": {
+      "lineCount": 67,
+      "size": 78741,
+      "mtimeMs": 1781327982049.4473,
+      "sessionCacheRead": 734464,
+      "maxCacheRead": 33408,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/3cfaa1f0-0a69-44c2-87ec-ff988910dd34.jsonl": {
+      "lineCount": 5,
+      "size": 13622,
+      "mtimeMs": 1781180488281.767,
+      "sessionCacheRead": 0,
+      "maxCacheRead": 0,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a1659919681f7578c.jsonl": {
+      "lineCount": 44,
+      "size": 98254,
+      "mtimeMs": 1781174730604.4182,
+      "sessionCacheRead": 357760,
+      "maxCacheRead": 21504,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a27ea5f4c1ad881c1.jsonl": {
+      "lineCount": 74,
+      "size": 209321,
+      "mtimeMs": 1781178378917.7488,
+      "sessionCacheRead": 1217152,
+      "maxCacheRead": 48384,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a2bc2114e44816568.jsonl": {
+      "lineCount": 51,
+      "size": 148916,
+      "mtimeMs": 1781177971479.8965,
+      "sessionCacheRead": 667136,
+      "maxCacheRead": 38912,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a2e7e770404449b80.jsonl": {
+      "lineCount": 43,
+      "size": 119585,
+      "mtimeMs": 1781178238512.4236,
+      "sessionCacheRead": 399744,
+      "maxCacheRead": 31104,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a325f30723523b6df.jsonl": {
+      "lineCount": 3,
+      "size": 24144,
+      "mtimeMs": 1781178093937.5857,
+      "sessionCacheRead": 11392,
+      "maxCacheRead": 11392,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a4c5de88328cb0dc3.jsonl": {
+      "lineCount": 19,
+      "size": 42044,
+      "mtimeMs": 1781174616012.2131,
+      "sessionCacheRead": 101888,
+      "maxCacheRead": 14592,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a56d398b335aa5a85.jsonl": {
+      "lineCount": 3,
+      "size": 18306,
+      "mtimeMs": 1781178152887.9238,
+      "sessionCacheRead": 11392,
+      "maxCacheRead": 11392,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a62f3910d05df1a0c.jsonl": {
+      "lineCount": 52,
+      "size": 96724,
+      "mtimeMs": 1781178304253.9548,
+      "sessionCacheRead": 455808,
+      "maxCacheRead": 24960,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a7c67575f11a8662a.jsonl": {
+      "lineCount": 111,
+      "size": 217156,
+      "mtimeMs": 1781174869850.7134,
+      "sessionCacheRead": 1512192,
+      "maxCacheRead": 38912,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a85506b15fac3c055.jsonl": {
+      "lineCount": 100,
+      "size": 194170,
+      "mtimeMs": 1781178022608.5825,
+      "sessionCacheRead": 1359616,
+      "maxCacheRead": 40832,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-a85ae5a3553a4a8db.jsonl": {
+      "lineCount": 30,
+      "size": 65386,
+      "mtimeMs": 1781172433376.2788,
+      "sessionCacheRead": 135936,
+      "maxCacheRead": 17024,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-aa422fd7e431a54e1.jsonl": {
+      "lineCount": 22,
+      "size": 71176,
+      "mtimeMs": 1781176600877.7632,
+      "sessionCacheRead": 134784,
+      "maxCacheRead": 23424,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-aafa4f76df68cd777.jsonl": {
+      "lineCount": 133,
+      "size": 246945,
+      "mtimeMs": 1781178088530.8794,
+      "sessionCacheRead": 1850880,
+      "maxCacheRead": 47616,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-abdc2a75baf7b7358.jsonl": {
+      "lineCount": 29,
+      "size": 75007,
+      "mtimeMs": 1781176600024.0889,
+      "sessionCacheRead": 177408,
+      "maxCacheRead": 18304,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-acda09655f4ad92d6.jsonl": {
+      "lineCount": 40,
+      "size": 81377,
+      "mtimeMs": 1781178197537.0837,
+      "sessionCacheRead": 367488,
+      "maxCacheRead": 22272,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-aee7af6e265261e17.jsonl": {
+      "lineCount": 70,
+      "size": 95622,
+      "mtimeMs": 1781176882496.7854,
+      "sessionCacheRead": 738688,
+      "maxCacheRead": 22528,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244/subagents/agent-afdc66271a8ce12a8.jsonl": {
+      "lineCount": 73,
+      "size": 150354,
+      "mtimeMs": 1781172448284.3152,
+      "sessionCacheRead": 547968,
+      "maxCacheRead": 26624,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/4e06013c-9b91-48bf-8498-f83b6a2b3244.jsonl": {
+      "lineCount": 3353,
+      "size": 8123756,
+      "mtimeMs": 1781180440380.4,
+      "sessionCacheRead": 207568256,
+      "maxCacheRead": 234496,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/61cfd74e-e91f-4d9f-8107-56a503c09f19.jsonl": {
+      "lineCount": 5,
+      "size": 6970,
+      "mtimeMs": 1781083258932.8474,
+      "sessionCacheRead": 0,
+      "maxCacheRead": 0,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/6302664a-2cb9-40dd-91bc-52dc2c7bad4c/subagents/agent-a5d774c69dc5f71a7.jsonl": {
+      "lineCount": 22,
+      "size": 56614,
+      "mtimeMs": 1781157306670.527,
+      "sessionCacheRead": 83200,
+      "maxCacheRead": 13056,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/6302664a-2cb9-40dd-91bc-52dc2c7bad4c.jsonl": {
+      "lineCount": 352,
+      "size": 815657,
+      "mtimeMs": 1781159711008.3506,
+      "sessionCacheRead": 8379520,
+      "maxCacheRead": 89088,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/68233cc8-ead2-487d-a7ee-efa1b1cbdc45.jsonl": {
+      "lineCount": 31,
+      "size": 24050,
+      "mtimeMs": 1781077250945.021,
+      "sessionCacheRead": 191744,
+      "maxCacheRead": 24064,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/7012e7f3-fc39-4df1-8181-5073b246d2aa.jsonl": {
+      "lineCount": 36,
+      "size": 33999,
+      "mtimeMs": 1781092950478.0051,
+      "sessionCacheRead": 251904,
+      "maxCacheRead": 25472,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/74bbdbda-ac60-4dc3-9eba-5e4aa3649c5c.jsonl": {
+      "lineCount": 10,
+      "size": 15693,
+      "mtimeMs": 1781180478204.386,
+      "sessionCacheRead": 0,
+      "maxCacheRead": 0,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/9fdc4a5b-6f9d-4c8f-b7b1-76326d2e66de.jsonl": {
+      "lineCount": 159,
+      "size": 195642,
+      "mtimeMs": 1781150912557.971,
+      "sessionCacheRead": 2318208,
+      "maxCacheRead": 39936,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/a73b35af-c254-45d3-a755-d25c7311617f.jsonl": {
+      "lineCount": 7,
+      "size": 3054,
+      "mtimeMs": 1781160498266.0906,
+      "sessionCacheRead": 0,
+      "maxCacheRead": 0,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/b0168764-b712-40d3-af63-fb63ea740e14.jsonl": {
+      "lineCount": 8,
+      "size": 7282,
+      "mtimeMs": 1781083538418.987,
+      "sessionCacheRead": 0,
+      "maxCacheRead": 0,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/ba461abc-3d23-4ee6-933b-01000568416a.jsonl": {
+      "lineCount": 74,
+      "size": 82871,
+      "mtimeMs": 1781081350333.9275,
+      "sessionCacheRead": 785664,
+      "maxCacheRead": 28800,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/d20e8172-f52d-4059-8fc1-31993a6d0e58.jsonl": {
+      "lineCount": 1481,
+      "size": 3142178,
+      "mtimeMs": 1781185848155.0984,
+      "sessionCacheRead": 114423552,
+      "maxCacheRead": 277504,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/da71f1f3-4438-47a6-96c1-5276cad047d4/subagents/agent-a7f76ab0c3def5266.jsonl": {
+      "lineCount": 26,
+      "size": 44782,
+      "mtimeMs": 1781093303839.0862,
+      "sessionCacheRead": 115328,
+      "maxCacheRead": 13056,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/da71f1f3-4438-47a6-96c1-5276cad047d4/subagents/agent-a89bd80e03a5609b2.jsonl": {
+      "lineCount": 38,
+      "size": 47021,
+      "mtimeMs": 1781093252884.0535,
+      "sessionCacheRead": 165760,
+      "maxCacheRead": 13440,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/da71f1f3-4438-47a6-96c1-5276cad047d4.jsonl": {
+      "lineCount": 217,
+      "size": 310899,
+      "mtimeMs": 1781099957888.84,
+      "sessionCacheRead": 3411456,
+      "maxCacheRead": 47360,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/dedee7b4-b0aa-49b9-8d1a-fb724a82bcf7.jsonl": {
+      "lineCount": 15,
+      "size": 10444,
+      "mtimeMs": 1781083091105.3975,
+      "sessionCacheRead": 0,
+      "maxCacheRead": 0,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/e86ec034-c076-4545-aa12-1d9dd58cc769/subagents/agent-a3d7e6ebba6f792a6.jsonl": {
+      "lineCount": 60,
+      "size": 171962,
+      "mtimeMs": 1781257667571.2205,
+      "sessionCacheRead": 341248,
+      "maxCacheRead": 15360,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/e86ec034-c076-4545-aa12-1d9dd58cc769/subagents/agent-a46f06e25c8ed4bfa.jsonl": {
+      "lineCount": 71,
+      "size": 129510,
+      "mtimeMs": 1781244905767.2935,
+      "sessionCacheRead": 491136,
+      "maxCacheRead": 24448,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/e86ec034-c076-4545-aa12-1d9dd58cc769/subagents/agent-a76956c108d2ef86e.jsonl": {
+      "lineCount": 205,
+      "size": 492608,
+      "mtimeMs": 1781230592863.514,
+      "sessionCacheRead": 4812416,
+      "maxCacheRead": 95488,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/e86ec034-c076-4545-aa12-1d9dd58cc769/subagents/agent-ac6053b357b5efb3a.jsonl": {
+      "lineCount": 55,
+      "size": 130630,
+      "mtimeMs": 1781239593422.7544,
+      "sessionCacheRead": 339328,
+      "maxCacheRead": 28160,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/e86ec034-c076-4545-aa12-1d9dd58cc769/subagents/agent-af6ce68342db805a4.jsonl": {
+      "lineCount": 124,
+      "size": 241872,
+      "mtimeMs": 1781251257668.9326,
+      "sessionCacheRead": 1257472,
+      "maxCacheRead": 44672,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/e86ec034-c076-4545-aa12-1d9dd58cc769.jsonl": {
+      "lineCount": 10930,
+      "size": 24699146,
+      "mtimeMs": 1783387215973.3623,
+      "sessionCacheRead": 1248612224,
+      "maxCacheRead": 477440,
+      "done": true
+    },
+    "E--Java-study-vibe-coding-demo/f7c5f971-e8a3-411e-9fca-19bf648361df.jsonl": {
+      "lineCount": 30,
+      "size": 432995,
+      "mtimeMs": 1781083449171.1772,
+      "sessionCacheRead": 49664,
+      "maxCacheRead": 24832,
+      "done": true
+    }
+  }
+}

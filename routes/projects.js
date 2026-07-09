@@ -59,7 +59,7 @@ router.get('/', (req, res) => {
   }
 });
 
-// GET /api/projects/:name — 项目详情
+// GET /api/projects/:name — 项目详情（含 Token 数据）
 router.get('/:name', (req, res) => {
   try {
     const projPath = path.join(config.PATHS.projects, req.params.name);
@@ -76,7 +76,6 @@ router.get('/:name', (req, res) => {
       const memFiles = fs.readdirSync(memDir).filter(f => f.endsWith('.md') && f !== 'MEMORY.md');
       memFiles.forEach(f => {
         const content = fs.readFileSync(path.join(memDir, f), 'utf-8');
-        // 解析 YAML front matter
         let title = f;
         let type = '';
         if (content.startsWith('---')) {
@@ -107,12 +106,44 @@ router.get('/:name', (req, res) => {
       });
     } catch {}
 
+    // 读取 Token 消耗数据
+    let tokenData = null;
+    try {
+      // 从 stats-cache.json 备份中查找项目 Token 数据
+      const backupDir = config.PATHS.backups;
+      const backupFiles = fs.readdirSync(backupDir)
+        .filter(f => f.startsWith('.claude.json.backup.'))
+        .sort();
+      // 取最新备份
+      const latestBackup = backupFiles.length > 0
+        ? JSON.parse(fs.readFileSync(path.join(backupDir, backupFiles[backupFiles.length - 1]), 'utf-8'))
+        : {};
+      const projects = latestBackup.projects || {};
+      // 匹配项目路径
+      for (const [projPathKey, projData] of Object.entries(projects)) {
+        const backupTail = projPathKey.split(/[\\/]/).pop();
+        // 对 req.params.name 做完整解码：-- → 路径分隔符，再取尾段匹配
+        const decodedName = req.params.name.replace(/--/g, '\\');
+        const nameTail = decodedName.split(/[\\/]/).pop();
+        if (backupTail === nameTail) {
+          tokenData = {
+            inputTokens: projData.lastTotalInputTokens || 0,
+            outputTokens: projData.lastTotalOutputTokens || 0,
+            cacheTokens: projData.lastTotalCacheReadInputTokens || 0,
+            costUSD: projData.lastCost || 0
+          };
+          break;
+        }
+      }
+    } catch {}
+
     res.json({
       success: true,
       data: {
         name: req.params.name,
         memories,
-        sessions: jsonlFiles.sort((a, b) => b.modified.localeCompare(a.modified))
+        sessions: jsonlFiles.sort((a, b) => b.modified.localeCompare(a.modified)),
+        tokenData
       }
     });
   } catch (err) {

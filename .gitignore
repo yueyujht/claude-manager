@@ -2,7 +2,14 @@
 node_modules/
 
 # Claude Code 本地配置（含权限、临时数据）
-.claude/
+.claude/*
+# 但 agents 定义需要版本控制
+!.claude/agents/
+
+# 项目本地数据
+data/*
+# 但 token-counter 的初始模板需要版本控制
+!data/token-counter.json
 
 # 系统文件
 .DS_Store

@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
     const plans = files.map(f => {
       const filePath = path.join(plansDir, f);
       const stat = fs.statSync(filePath);
-      // 提取第一行作为标题
       let title = f.replace('.md', '');
       try {
         const content = fs.readFileSync(filePath, 'utf-8');
@@ -24,7 +23,6 @@ router.get('/', (req, res) => {
           title = firstLine.replace('# ', '').trim();
         }
       } catch {}
-
       return {
         file: f,
         title,
@@ -34,12 +32,29 @@ router.get('/', (req, res) => {
       };
     });
 
-    // 按修改时间倒序
     plans.sort((a, b) => b.modified.localeCompare(a.modified));
-
     res.json({ success: true, data: plans });
   } catch (err) {
     res.json({ success: false, error: '读取计划列表失败: ' + err.message });
+  }
+});
+
+// GET /api/plans/:file — 单个计划详情
+router.get('/:file', (req, res) => {
+  try {
+    const plansDir = path.resolve(config.PATHS.plans);
+    const filePath = path.resolve(plansDir, req.params.file);
+    // 路径遍历防护：确保解析后的路径仍在 plans 目录下
+    if (!filePath.startsWith(plansDir + path.sep)) {
+      return res.json({ success: false, error: '无效的文件路径' });
+    }
+    if (!fs.existsSync(filePath)) {
+      return res.json({ success: false, error: '计划文件不存在' });
+    }
+    const content = fs.readFileSync(filePath, 'utf-8');
+    res.json({ success: true, data: { file: req.params.file, content } });
+  } catch (err) {
+    res.json({ success: false, error: '读取计划详情失败: ' + err.message });
   }
 });
 
